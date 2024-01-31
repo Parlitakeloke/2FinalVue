@@ -3,7 +3,6 @@
 
 <head>
   <title>Simulador de Números Aleatorios</title>
-  <script src="script.js"></script>
 </head>
 
 <body>
@@ -66,7 +65,7 @@
     }
 
 
-     ingresarNumero(numero){
+    ingresarNumero(numero) {
 
       this.numeros.push(numero);
 
@@ -83,11 +82,13 @@
   }
 
 
-  function generarNumerosAleatorios(e) {
+  function generarNumerosAleatorios() {
 
     var nombre = document.getElementById("nombre").value;
     var limit = document.getElementById("limit").value;
     var count = document.getElementById("count").value;
+    let primerarray = [];
+    let numerosAleatoriosElement = document.getElementById('numerosAleatorios');
 
 
     if (nombre == "") {
@@ -110,10 +111,35 @@
           alert("El limite es 50");
           count = 50
 
+          const userin = new comepollas(nombre);
+          while (primerarray.length < count) {
+            const numero = Math.floor(Math.random() * (limit + 1));
+            primerarray.push(numero);
+            userin.ingresarNumero(numero);
+
+          }
+
+
+          console.log(userin.getNumeros());
+          for (let i = 0; i < primerarray.length; i++) {
+            numerosAleatoriosElement.innerHTML += '<br> <li>' + primerarray[i] + '</li>';
+          }
+
 
         } else {
 
+          const userin = new comepollas(nombre);
+          while (primerarray.length < count) {
+            const numero = Math.floor(Math.random() * (limit));
+            primerarray.push(numero);
+            userin.ingresarNumero(numero);
+          }
 
+
+          console.log(userin.getNumeros());
+          for (let i = 0; i < primerarray.length; i++) {
+            numerosAleatoriosElement.innerHTML += '<br> <li>' + primerarray[i] + '</li>';
+          }
 
         }
 
@@ -127,9 +153,34 @@
           alert("El limite es 50");
           count = 50
 
+          const userin = new comepollas(nombre);
+          while (primerarray.length < count) {
+            const numero = Math.floor(Math.random() * (limit));
+            primerarray.push(numero);
+            userin.ingresarNumero(numero);
+          }
+
+
+          console.log(userin.getNumeros());
+          for (let i = 0; i < primerarray.length; i++) {
+            numerosAleatoriosElement.innerHTML += '<br> <li>' + primerarray[i] + '</li>';
+          }
 
         } else {
 
+
+          const userin = new comepollas(nombre);
+          while (primerarray.length < count) {
+            const numero = Math.floor(Math.random() * (limit));
+            primerarray.push(numero);
+            userin.ingresarNumero(numero);
+          }
+
+
+          console.log(userin.getNumeros());
+          for (let i = 0; i < primerarray.length; i++) {
+            numerosAleatoriosElement.innerHTML += '<br> <li>' + primerarray[i] + '</li>';
+          }
 
 
         }
